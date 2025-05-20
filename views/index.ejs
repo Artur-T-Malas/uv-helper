@@ -22,7 +22,19 @@
         </div>
     </div>
     <% } %>
-        
+    <div class="location-input">
+        <form action="/location" method="POST">
+            <div class="input-row">
+                <label for="latitude">Latitude</label>
+                <input type="text" name="latitude" value="52.23" required>
+            </div>
+            <div class="input-row">
+                <label for="longitude">Longitude</label>
+                <input type="text" name="longitude" value="21.01" required>
+            </div>
+            <input type="submit" value="Get UV Info">
+        </form>
+    </div>
 </main>
 </body>
 

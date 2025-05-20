@@ -54,18 +54,24 @@ const example = {
   }
 }
 
+app.use(express.urlencoded( { extended: true }));
 app.use(express.static("public"));
 
-app.get("/", async (req, res) => {
+app.get("/", (req, res) => {
+    res.render("index.ejs");
+})
+
+app.post("/location", async (req, res) => {
+    console.log(req.body);
     try {
         // const result = await axios.get(
         //     API_URL + '/api/v1/uv',
         //     {
         //         headers: headers,
         //         params: {
-        //             lat: '',
-        //             lng: '',
-        //             alt: ''
+        //             lat: req.body.latitude,
+        //             lng: req.body.longitude,
+        //             alt: 100
         //         }
         //     }
         // )
