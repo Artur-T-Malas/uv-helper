@@ -1,0 +1,29 @@
+<%- include("partials/header.ejs") %>
+<%- include("partials/sidebar.ejs") %>
+<% if (locals.errorMessage) { %>
+    <div class="error-pop-up">
+        <p><%= locals.errorMessage %></p>
+    </div>
+<% } %>
+<main>
+    <% if (locals.data) { %>
+    <div class="uv-info">
+        <h2>UV Radiation Info</h2> 
+        <h3>for <%= locals.data.result.uv_time %></h3>
+        <div class="uv-data">
+            <div class="uv-data-labels">
+                <p>UV Index: </p>
+                <p>UV Maximum Index of the Day: </p>
+            </div>
+            <div class="uv-data-values">
+                <p><%= locals.data.result.uv %></p>
+                <p><%= locals.data.result.uv_max %></p>
+            </div>
+        </div>
+    </div>
+    <% } %>
+        
+</main>
+</body>
+
+<%- include("partials/footer.ejs") %>

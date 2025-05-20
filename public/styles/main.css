@@ -1,0 +1,252 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #FF9B45;
+    color: #F4E7E1;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: auto 1fr auto auto;
+    grid-template-areas:
+        "navbar navbar"
+        "banner banner"
+        "sidebar main"
+        "sidebar blog-post-creation"
+        "sidebar footer";
+}
+
+nav {
+    grid-area: navbar;
+    top: 0;
+    padding: 0.5rem;
+    position: sticky;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #521C0D;
+    color: #FF9B45;
+    font-weight: bold;
+}
+
+main {
+    grid-area: main;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+aside {
+    grid-area: sidebar;
+    height: calc(100vh - 5rem);
+    top: 3rem;
+    position: sticky;
+    background-color: #D5451B;
+    border-radius: 1rem;
+    margin: .5rem;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+footer {
+    grid-area: footer;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    color: #521C0D;
+}
+
+svg {
+    height: 30px;
+    width: 30px;
+}
+
+p {
+    margin: 1rem;
+}
+
+h1 {
+    margin: 0.5rem;
+}
+
+h2, h3 {
+    margin: 1rem;
+}
+
+a {
+    color: #521C0D;
+}
+
+.error-pop-up {
+    grid-area: banner;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin: 0.5rem;
+    color: #EEEEEE;
+}
+
+.uv-info {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    flex-grow: 1;
+    width: 50vw;
+    min-width: 400px;
+    max-width: 600px;
+
+    padding: 1rem;
+    border-radius: 1rem;
+    margin: .5rem;
+    background-color: #D5451B;
+}
+
+.uv-data {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+        "labels values";
+}
+
+.uv-data-labels {
+    grid-area: labels;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.uv-data-values {
+    grid-area: values;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+input[type=submit], input[type=button], button {
+    background-color: #EEEEEE;
+    color: #053B50;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    width: 70px;
+    font-weight: bold;
+    margin: 0.2rem;
+}
+
+nav > button {
+    display: none;
+}
+
+.links {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+a.social-media-link {
+    padding: .5rem;
+    text-decoration: none;
+}
+
+a.social-media-link span, a.social-media-link svg {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.social-media-link svg path{
+    fill: #521C0D;
+}
+
+.error-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 33vw;
+
+    padding: 1rem;
+    border-radius: 1rem;
+    margin: .5rem;
+    background-color: #053B50;
+
+    svg {
+        height: 70px;
+        width: 70px;
+    }
+
+    p {
+        margin: 0.5rem;
+    }
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    width: 150px;
+    bottom: 110%;
+    left: 50%;
+    margin-left: -75px;
+
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+@media(max-width: 800px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "navbar"
+            "main"
+            "blog-post-creation"
+            "footer";
+    }
+
+    nav > button {
+        display: inline-block;
+        svg path{
+            fill: #053B50;
+        }
+    }
+
+    aside {
+        position: fixed;
+        width: 300px;
+        display: none;
+        height: auto;
+    }
+
+    #sidebar {
+        border: solid 3px #64CCC5;
+    }
+
+    .show {
+        display: block;
+    }
+
+    .social-media-link span {
+        display: none;
+    }
+}
